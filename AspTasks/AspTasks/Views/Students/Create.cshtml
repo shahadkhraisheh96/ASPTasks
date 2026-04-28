@@ -1,0 +1,19 @@
+﻿@model AspTasks.Models.Students
+
+<h2>Add Student</h2>
+
+<form asp-action="Create" method="post">
+    <label>Name</label>
+    <input asp-for="Name" />
+    <br />
+
+    <label>Age</label>
+    <input asp-for="Age" />
+    <br />
+
+    <label>Email</label>
+    <input asp-for="Email" />
+    <br />
+
+    <button type="submit">Save</button>
+</form>
