@@ -1,0 +1,17 @@
+﻿@model IEnumerable<ContactFeedback>
+
+<div class="container mt-4">
+    <h2>Customer Feedback</h2>
+    <div class="list-group">
+        @foreach (var msg in Model)
+        {
+            <div class="list-group-item list-group-item-action mb-2 shadow-sm border">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">From: @msg.SenderEmail</h5>
+                    <small>@msg.SubmittedAt.ToString("g")</small>
+                </div>
+                <p class="mb-1 mt-2">@msg.Message</p>
+            </div>
+        }
+    </div>
+</div>

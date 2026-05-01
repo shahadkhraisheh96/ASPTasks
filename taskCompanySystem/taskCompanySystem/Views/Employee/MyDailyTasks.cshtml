@@ -1,0 +1,36 @@
+﻿@model IEnumerable<EmployeeTask>
+
+<div class="container mt-4">
+    <h3>Hello, @User.Identity.Name</h3>
+    <p class="text-muted">Here are your tasks for today: @DateTime.Now.ToString("MMMM dd, yyyy")</p>
+    <hr />
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-light border">No tasks assigned for today.</div>
+    }
+    else
+    {
+        <div class="row">
+            @foreach (var task in Model)
+            {
+                <div class="col-md-6 mb-3">
+                    <div class="card h-100 border-start border-4 @(task.ImportanceLevel == "High" ? "border-danger" : "border-primary")">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between">
+                                <h5 class="card-title">@task.Title</h5>
+                                <span class="badge @(task.ImportanceLevel == "High" ? "bg-danger" : "bg-info")">
+                                    @task.ImportanceLevel
+                                </span>
+                            </div>
+                            <p class="card-text">@task.Description</p>
+                            <div class="text-muted small">
+                                <i class="bi bi-clock"></i> Deadline: @task.DueDate.ToShortDateString()
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>

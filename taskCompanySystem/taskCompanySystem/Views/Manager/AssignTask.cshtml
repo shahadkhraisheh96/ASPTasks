@@ -1,0 +1,46 @@
+﻿@model EmployeeTask
+
+<div asp-validation-summary="All" class="text-danger"></div>
+<div class="card shadow p-4 mx-auto" style="max-width: 600px;">
+    <h3>Assign New Task</h3>
+    <form asp-action="AssignTask" method="post">
+        <div class="mb-3">
+            <label>Task Title</label>
+            <input asp-for="Title" class="form-control" required />
+        </div>
+
+        <div class="mb-3">
+            <label>Assign to Employee</label>
+            <select asp-for="EmployeeId" class="form-select" asp-items="ViewBag.EmployeeList">
+                <option value="">-- Select Employee --</option>
+            </select>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <label>Start Date</label>
+                <input asp-for="StartDate" type="date" class="form-control" />
+            </div>
+            <div class="col">
+                <label>Due Date</label>
+                <input asp-for="DueDate" type="date" class="form-control" />
+            </div>
+        </div>
+
+        <div class="mb-3 mt-3">
+            <label>Level of Importance</label>
+            <select asp-for="ImportanceLevel" class="form-select">
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label>Description</label>
+            <textarea asp-for="Description" class="form-control" rows="3"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Assign Task</button>
+    </form>
+</div>

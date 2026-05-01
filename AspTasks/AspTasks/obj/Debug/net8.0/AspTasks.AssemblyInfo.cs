@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AspTasks")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a6f65c3ab1f75b088ab1cb55f79dd6167cd91962")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+98f00b559fc6231dd8dc4e9fb95884c43d15407c")]
 [assembly: System.Reflection.AssemblyProductAttribute("AspTasks")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AspTasks")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
