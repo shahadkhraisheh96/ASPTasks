@@ -14,7 +14,7 @@ namespace taskCompanySystem.Models
 
         public string EmployeeId { get; set; }
 
-        [ValidateNever] // Add this to stop the "Employee field is required" error[cite: 18]
+        [ValidateNever] 
         public virtual ApplicationUser Employee { get; set; }
     }
 }

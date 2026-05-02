@@ -1,0 +1,56 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using taskIdentity.Identity
+@inject UserManager<ApplicationUser> UserManager 
+@model IEnumerable<taskIdentity.Identity.ApplicationUser>
+
+@{
+    ViewData["Title"] = "User Management";
+}
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        @TempData["Message"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+<div class="container mt-4">
+    <h2>Registered Users</h2>
+    <table class="table table-striped border">
+        <thead class="table-dark">
+            <tr>
+                <th>Full Name</th>
+                <th>Email</th>
+                <th>User ID</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <td>@user.FullName</td>
+                    <td>@user.Email</td>
+                    <td>
+                        @if (!await UserManager.IsInRoleAsync(user, "Admin"))
+                        {
+                            <!-- Promote Button -->
+                            <form asp-action="PromoteToAdmin" method="post" style="display:inline;">
+                                <input type="hidden" name="userId" value="@user.Id" />
+                                <button type="submit" class="btn btn-sm btn-success">Promote to Admin</button>
+                            </form>
+                        }
+                        else
+                        {
+                            <!-- Remove Admin Button -->
+                            <form asp-action="RemoveAdminRole" method="post" style="display:inline;">
+                                <input type="hidden" name="userId" value="@user.Id" />
+                                <button type="submit" class="btn btn-sm btn-warning">Remove Admin Role</button>
+                            </form>
+                            <span class="badge bg-danger ms-2">Admin</span>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a asp-action="Index" class="btn btn-secondary">Back to Dashboard</a>
+</div>

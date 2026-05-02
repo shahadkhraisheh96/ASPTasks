@@ -1,0 +1,12 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using taskIdentity.Identity
+@inject UserManager<ApplicationUser> UserManager
+
+@{
+    var user = await UserManager.GetUserAsync(User);
+}
+
+<div class="text-center">
+    <h1>Welcome, @user.FullName!</h1>
+    <p>Your registered email is: @user.Email</p>
+</div>

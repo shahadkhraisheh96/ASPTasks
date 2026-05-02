@@ -8,6 +8,14 @@ namespace IdentityTest.Controllers
     {
         public IActionResult Index()
         {
+            if (User.IsInRole("Admin"))
+            {
+                return RedirectToAction("HelloAdmin", "Admin");
+            }
+            else if (User.IsInRole("User"))
+            {
+                return RedirectToAction("HelloUser", "User");
+            }
             return View();
         }
 
