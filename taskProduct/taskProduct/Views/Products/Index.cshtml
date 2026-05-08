@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Product>
+@{
+    ViewData["Title"] = ViewBag.CategoryName + " - Products";
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>@ViewBag.CategoryName</h1>
+        <div>
+            <a asp-action="Create" class="btn btn-success">+ Add Product</a>
+            <a asp-controller="Categories" asp-action="Index" class="btn btn-outline-secondary">Back to Categories</a>
+        </div>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        @foreach (var product in Model)
+        {
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    @if (!string.IsNullOrEmpty(product.ImagePath))
+                    {
+                        <img src="~/images/Products/@product.ImagePath" class="card-img-top" alt="@product.Name" style="height: 250px; object-fit: cover;">
+                    }
+                    else
+                    {
+                        <div class="card-img-top bg-secondary d-flex align-items-center justify-content-center" style="height: 250px;">
+                            <span class="text-white">No Image</span>
+                        </div>
+                    }
+                    <div class="card-body">
+                        <h5 class="card-title">@product.Name</h5>
+                        <p class="card-text text-success fw-bold fs-5">$@product.Price.ToString("F2")</p>
+                    </div>
+                    <div class="card-footer bg-transparent border-0 pb-3">
+                        <a asp-action="Details" asp-route-id="@product.Id" class="btn btn-info w-100 text-white">View Details</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Categories>
+@{
+    ViewData["Title"] = "Categories";
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>Our Categories</h1>
+        <a asp-action="Create" class="btn btn-primary">+ Add Category</a>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        @foreach (var category in Model)
+        {
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    @if (!string.IsNullOrEmpty(category.ImagePath))
+                    {
+                        <img src="~/images/Categories/@category.ImagePath" class="card-img-top" alt="@category.Name" style="height: 220px; object-fit: cover;">
+                    }
+                    else
+                    {
+                        <div class="card-img-top bg-secondary d-flex align-items-center justify-content-center" style="height: 220px;">
+                            <span class="text-white">No Image</span>
+                        </div>
+                    }
+                    <div class="card-body text-center">
+                        <h5 class="card-title">@category.Name</h5>
+                    </div>
+                    <div class="card-footer bg-transparent border-0 pb-3">
+                        <a asp-controller="Products" asp-action="Index" asp-route-categoryId="@category.Id" class="btn btn-primary w-100">View Products</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

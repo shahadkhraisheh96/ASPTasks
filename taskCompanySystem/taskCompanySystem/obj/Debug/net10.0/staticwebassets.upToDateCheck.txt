@@ -62,6 +62,7 @@ wwwroot\lib\jquery\dist\jquery.slim.min.js
 wwwroot\lib\jquery\dist\jquery.slim.min.map
 wwwroot\lib\jquery\LICENSE.txt
 wwwroot\uploads\21134037-8bb0-48d6-a3f0-16ede11c2e64_Screenshot 2026-03-02 055828.png
+wwwroot\uploads\e8fea017-3c2b-4ed1-8ffd-5d059a36e030_Screenshot 2026-03-02 055838.png
 C:\Users\user\ASPTasks\taskCompanySystem\taskCompanySystem\wwwroot\lib\jquery\LICENSE.txt
 C:\Users\user\ASPTasks\taskCompanySystem\taskCompanySystem\wwwroot\lib\jquery\dist\jquery.slim.min.map
 C:\Users\user\ASPTasks\taskCompanySystem\taskCompanySystem\wwwroot\lib\jquery\dist\jquery.slim.min.js
