@@ -76,13 +76,13 @@ async Task SeedManagerAsync(IServiceProvider serviceProvider)
             Email = email,
             FullName = "System Manager",
             NationalID = "0000000000",
-            BirthDate = new DateTime(1990, 1, 1), // Change: Required field[cite: 15]
-            Nationality = "Jordanian",             // Change: Required field[cite: 15]
-            MaritalStatus = "Single",              // Change: Required field[cite: 15]
-            PhotoPath = "default.png",             // Change: Required field[cite: 15]
-            EntryDate = DateTime.Now,              // Change: Required field[cite: 15]
+            BirthDate = new DateTime(1990, 1, 1), 
+            Nationality = "Jordanian",             
+            MaritalStatus = "Single",              
+            PhotoPath = "default.png",             
+            EntryDate = DateTime.Now,              
             EmailConfirmed = true,
-            DepartmentId = adminDept.Id            // Keep: Required Foreign Key[cite: 15]
+            DepartmentId = adminDept.Id            
         };
         await userManager.CreateAsync(manager, "Manager@123");
         await userManager.AddToRoleAsync(manager, "Manager");
