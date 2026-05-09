@@ -1,0 +1,49 @@
+﻿@model (Students[] Students, Courses[] Courses)
+
+@{
+    ViewData["Title"] = "Students & Courses";
+}
+
+<h2>Students</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model.Students)
+        {
+            <tr>
+                <td>@student.Id</td>
+                <td>@student.Name</td>
+                <td>@student.Age</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<hr />
+
+<h2>Courses</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Course Name</th>
+            <th>Instructor</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var course in Model.Courses)
+        {
+            <tr>
+                <td>@course.Id</td>
+                <td>@course.Name</td>
+                <td>@course.InstructorName</td>
+            </tr>
+        }
+    </tbody>
+</table>
