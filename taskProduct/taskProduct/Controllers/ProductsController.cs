@@ -74,9 +74,8 @@ namespace taskProduct.Controllers
                 }
                 _context.Add(product);
                 await _context.SaveChangesAsync();
-                TempData["NotificationType"] = "success";
-                TempData["NotificationMessage"] = "Product created successfully!";
 
+                TempData["Success"] = $"Product '{product.Name}' was added successfully!";
                 return RedirectToAction("Index", "Categories");
             }
             ViewBag.Categories = new SelectList(await _context.Categories.ToListAsync(), "Id", "Name"); 
@@ -96,6 +95,7 @@ namespace taskProduct.Controllers
             {
                 return NotFound();
             }
+            TempData["Success"] = $"Product '{product.Name}' was updated successfully!";
             ViewData["CategoryId"] = new SelectList(_context.Categories, "id", "id", product.CategoryId);
             return View(product);
         }
@@ -132,6 +132,7 @@ namespace taskProduct.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            TempData["Success"] = $"Product '{product.Name}' was updated successfully!";
             ViewData["CategoryId"] = new SelectList(_context.Categories, "id", "id", product.CategoryId);
             return View(product);
         }
@@ -167,6 +168,7 @@ namespace taskProduct.Controllers
             }
 
             await _context.SaveChangesAsync();
+            TempData["Warning"] = $"Product '{product.Name}' has been deleted.";
             return RedirectToAction(nameof(Index));
         }
 

@@ -33,6 +33,9 @@
                     </div>
                     <div class="card-footer bg-transparent border-0 pb-3">
                         <a asp-action="Details" asp-route-id="@product.Id" class="btn btn-info w-100 text-white">View Details</a>
+                            <a asp-action="Delete" asp-route-id="@product.Id" class="btn btn-outline-danger justify-content-center mt-1  w-100">
+                              Delete
+                            </a>
                     </div>
                 </div>
             </div>

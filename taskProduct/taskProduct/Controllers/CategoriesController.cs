@@ -71,6 +71,7 @@ namespace taskProduct.Controllers
 
                 _context.Add(categories);
                 await _context.SaveChangesAsync();
+                TempData["Success"] = $"Categery '{categories.Name}' has been added.";
                 return RedirectToAction(nameof(Index));
             }
 
@@ -157,6 +158,7 @@ namespace taskProduct.Controllers
             }
 
             await _context.SaveChangesAsync();
+            TempData["Warning"] = $"Category '{categories.Name}' has been deleted.";
             return RedirectToAction(nameof(Index));
         }
 

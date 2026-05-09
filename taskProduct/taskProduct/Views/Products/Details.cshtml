@@ -18,7 +18,7 @@
         <div class="col-md-6 mb-4">
             @if (!string.IsNullOrEmpty(Model.ImagePath))
             {
-                <img src="@Model.ImagePath" class="img-fluid rounded shadow" alt="@Model.Name" style="width: 100%; max-height: 500px; object-fit: cover;">
+                <img src="~/images/Products/@Model.ImagePath" class="img-fluid rounded shadow" alt="@Model.Name" style="width: 100%; max-height: 500px; object-fit: cover;">
             }
             else
             {
@@ -37,11 +37,17 @@
                     <p class="card-text lead">@Model.Description</p>
                     <hr />
                     <p class="mb-0"><strong>Category:</strong> <span class="badge bg-primary">@Model.Category.Name</span></p>
-                </div>
+                      
+                    </div>
             </div>
 
             <div class="mt-4">
-                <a asp-action="Index" asp-route-categoryId="@Model.CategoryId" class="btn btn-secondary btn-lg">← Back to Products</a>
+                 
+                        <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-outline-danger w-100 justify-content-center m-2">
+                            Delete
+                        </a>
+                   <hr />
+                <a asp-action="Index" asp-route-categoryId="@Model.CategoryId" class="btn btn-secondary btn-lg">Back to Products</a>
             </div>
         </div>
     </div>
